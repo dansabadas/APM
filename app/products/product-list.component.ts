@@ -3,7 +3,7 @@ import { Component, OnInit }  from 'angular2/core';
 
 import { IProduct } from './product';
 import { ProductFilterPipe } from './product-filter.pipe';
-// import { StarComponent } from '../shared/star.component';
+import { StarComponent } from '../shared/star.component';
 // import { ProductService } from './product.service';
 
 @Component({
@@ -11,14 +11,14 @@ import { ProductFilterPipe } from './product-filter.pipe';
     styleUrls: ['app/products/product-list.component.css'],
     selector: 'pm-products',
     pipes: [ProductFilterPipe],
-    // directives: [StarComponent, ROUTER_DIRECTIVES]
+    directives: [StarComponent] //ROUTER_DIRECTIVES
 })
 export class ProductListComponent implements OnInit {
     pageTitle: string = 'Siemens Product List';
     imageWidth: number = 50;
     imageMargin: number = 2;
     showImage: boolean = false;
-    listFilter: string = 'cart';
+    listFilter: string = '';
     errorMessage: string;
     products: IProduct[];   
 
