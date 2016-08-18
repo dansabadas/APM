@@ -1,0 +1,4 @@
+{
+    "proxy" : "https://evo01648.evosoft.com:8443",
+    "rejectUnauthorized": false
+}
