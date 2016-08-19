@@ -1,5 +1,8 @@
 import { Component } from 'angular2/core';
+import { HTTP_PROVIDERS } from 'angular2/http';
+import 'rxjs/Rx';   // Loads all features for observables (ES2016)
 import { ProductListComponent } from './products/product-list.component';
+import { ProductService } from './products/product.service';
 
 @Component({
     selector: 'pm-app',
@@ -21,9 +24,7 @@ import { ProductListComponent } from './products/product-list.component';
      </div>
      `,
     directives: [ProductListComponent], //ROUTER_DIRECTIVES
-    // providers: [ProductService,
-    //             HTTP_PROVIDERS,
-    //             ROUTER_PROVIDERS]
+    providers: [ProductService, HTTP_PROVIDERS] // ROUTER_PROVIDERS
 })
 export class AppComponent {
     pageTitle: string = 'Siemens Product Management';
