@@ -1,5 +1,5 @@
 import { Component, OnInit }  from 'angular2/core';
-//import { ROUTER_DIRECTIVES } from 'angular2/router';
+import { ROUTER_DIRECTIVES  } from 'angular2/router';
 
 import { IProduct } from './product';
 import { ProductFilterPipe } from './product-filter.pipe';
@@ -9,9 +9,9 @@ import { ProductService } from './product.service';
 @Component({
     templateUrl: 'app/products/product-list.component.html',
     styleUrls: ['app/products/product-list.component.css'],
-    selector: 'pm-products',    // needed only when we know will be embedded in someone else's declaratively HTML5 design
+    // selector: 'pm-products',    // needed only when we know will be embedded in someone else's declaratively HTML5 design
     pipes: [ProductFilterPipe],
-    directives: [StarComponent] //ROUTER_DIRECTIVES
+    directives: [StarComponent, ROUTER_DIRECTIVES] 
 })
 export class ProductListComponent implements OnInit {
     pageTitle: string = 'Siemens Product List';
@@ -20,7 +20,7 @@ export class ProductListComponent implements OnInit {
     showImage: boolean = false;
     listFilter: string = '';
     errorMessage: string;
-    products: IProduct[];   
+    products: IProduct[];
 
     constructor(private _productService: ProductService) {
 

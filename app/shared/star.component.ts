@@ -21,6 +21,7 @@ export class StarComponent implements OnChanges {
     }
 
     onClick(): void {
+        console.log('clicked anyway');
         this.ratingClicked.emit(`The rating ${this.rating} was clicked!`);
         //raises the event ratingClicked to whoever subscribed to it (parent component maybe)
     }

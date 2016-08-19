@@ -10,19 +10,20 @@ import { StarComponent } from '../shared/star.component';
     directives: [StarComponent]
 })
 export class ProductDetailComponent implements OnInit {
-    pageTitle: string = 'Product Detail';
+    pageTitle: string = 'Siemens Product Detail';
     product: IProduct;
     errorMessage: string;
 
     constructor(private _productService: ProductService,
         private _router: Router,
         private _routeParams: RouteParams) {
+            console.log(this._routeParams.get('id'));
     }
 
     ngOnInit() {
         if (!this.product) {
             let id = +this._routeParams.get('id');
-            // this.pageTitle += `: ${id}`;
+            this.pageTitle += `: ${id}`;
             this.getProduct(id);
         }
     }
@@ -37,5 +38,4 @@ export class ProductDetailComponent implements OnInit {
     onBack(): void {
         this._router.navigate(['Products']);
     }
-
 }

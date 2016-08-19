@@ -1,7 +1,7 @@
 import { Component } from 'angular2/core';
 import { HTTP_PROVIDERS } from 'angular2/http';
 import 'rxjs/Rx';   // Loads all features for observables (ES2016)
-import { RouteConfig, ROUTER_PROVIDERS } from 'angular2/router';
+import { RouteConfig, ROUTER_PROVIDERS, ROUTER_DIRECTIVES } from 'angular2/router';
 
 import { ProductListComponent } from './products/product-list.component';
 import { ProductService } from './products/product.service';
@@ -16,9 +16,9 @@ import { WelcomeComponent } from './home/welcome.component';
         <nav class='navbar navbar-default'>
             <div class='container-fluid'>
                 <a class='navbar-brand'>{{pageTitle}}</a>
-                <pm-products></pm-products>
                 <ul class='nav navbar-nav'>
-                    
+                    <li><a [routerLink]="['Welcome']">Home</a></li>
+                    <li><a [routerLink]="['Products']">Product List</a></li>
                 </ul>
             </div>
         </nav>
@@ -27,7 +27,7 @@ import { WelcomeComponent } from './home/welcome.component';
         </div>
      </div>
      `,
-    directives: [ProductListComponent], //ROUTER_DIRECTIVES
+    directives: [ROUTER_DIRECTIVES], //ProductListComponent if not specified in the template, the directive does not need to be declared here anymore!
     providers: [ProductService, HTTP_PROVIDERS, ROUTER_PROVIDERS]
 })
 @RouteConfig([

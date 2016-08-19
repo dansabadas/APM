@@ -17,7 +17,7 @@ export class ProductService {
             .catch(this.handleError);
     }
 
-    getProduct(id: number): Observable<IProduct> { //  {
+    getProduct(id: number): Observable<IProduct> {
         return this.getProducts()
             .map((products: IProduct[]) => products.filter(p => p.productId === id)[0]);
     }
