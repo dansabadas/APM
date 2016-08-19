@@ -9,7 +9,7 @@ import { ProductService } from './product.service';
 @Component({
     templateUrl: 'app/products/product-list.component.html',
     styleUrls: ['app/products/product-list.component.css'],
-    selector: 'pm-products',
+    selector: 'pm-products',    // needed only when we know will be embedded in someone else's declaratively HTML5 design
     pipes: [ProductFilterPipe],
     directives: [StarComponent] //ROUTER_DIRECTIVES
 })

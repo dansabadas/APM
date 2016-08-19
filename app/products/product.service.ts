@@ -17,12 +17,9 @@ export class ProductService {
             .catch(this.handleError);
     }
 
-    getProduct(id: number): IProduct { // Observable<IProduct> {
-        // return this.getProducts()
-        //     .map((products: IProduct[]) => products.find(p => p.productId === id));
-
-        //return  this.getProducts().filter(p => p.productId === id).f;
-        return null;
+    getProduct(id: number): Observable<IProduct> { //  {
+        return this.getProducts()
+            .map((products: IProduct[]) => products.filter(p => p.productId === id)[0]);
     }
 
     private handleError(error: Response) {
